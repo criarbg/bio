@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+const faq: Array<[string, string[]]> = [
+  ['Quais são os horários para mudanças?', ['Terças e quintas: 09h às 12h e 14h às 17h.', 'Sábados: 09h às 12h.', 'Mudanças não são permitidas aos domingos e feriados.', 'As mudanças devem ser agendadas com a administradora ou o síndico, com pelo menos 48 horas de antecedência.']],
+  ['Quais são os horários para reformas?', ['De segunda a sexta: 08h às 17h.', 'Sábados: 08h às 12h.', 'Reformas não são permitidas aos domingos e feriados.']],
+  ['Qual é o horário permitido para ruídos?', ['De segunda a sexta: 07h às 22h.', 'Sábados: 08h às 12h.', 'Ruídos não são permitidos aos domingos e feriados.', 'Ruídos contínuos podem caracterizar perturbação do sossego alheio.']],
+  ['Qual é o valor da taxa de mudança?', ['R$ 300,00 em pagamento único.', 'O agendamento deve ser realizado com a administradora ou o síndico.']],
+  ['Quais provedores de internet estão disponíveis?', ['LastNet, GVT, SKY, Italnet, MhNet, NetFar, ViaSul, Entelvias e AdylNet.']],
+  ['Posso instalar outro provedor?', ['Não é permitida a instalação de novas operadoras ou provedores, conforme estabelecido em assembleia ordinária de 31/01/2024.']],
+  ['Qual é o valor de uma TAG ou controle adicional?', ['TAG: R$ 14,00 por unidade.', 'Controle: R$ 46,00 por unidade.']],
+  ['Como abrir a porta pelo interfone?', ['Quando o interfone tocar, digite * e 2, em sequência.', 'Abra a porta somente para pessoas conhecidas.']],
+  ['É permitido alugar por aplicativos?', ['O aluguel por aplicativos, como Airbnb e similares, e os aluguéis sazonais ou por temporada não são permitidos, conforme definido em assembleia ordinária de 04/12/2024.']],
+  ['Como funciona a segurança do condomínio?', ['O edifício conta com um sistema de vigilância por câmeras em todos os andares e controle de acesso tanto na entrada de pedestres quanto nas garagens.']],
+];
+const contacts = [
+  ['Área do morador', 'Acessar documentos e serviços', 'https://morador.apcontrole.com.br/'],
+  ['Segunda via', 'Boleto condominial', 'https://wa.me/+558000196019?text=Ol%C3%A1%2C+'],
+  ['Administradora', 'Solicite suporte pelo WhatsApp', 'https://wa.me/+555430750425?text=Ol%C3%A1%2C+sou+morador%28a%29+do+Ed.+Criar+e+gostaria+de+ajuda+com+'],
+  ['Síndico', 'Fale diretamente pelo WhatsApp', 'https://wa.me/+5554920017295?text=Ol%C3%A1%2C+sou+morador%28a%29+do+Ed.+Criar+e+gostaria+de+ajuda+com+'],
+];
+---
+<BaseLayout title="Edifício Cria’r | Bento Gonçalves" description="Canais, documentos e informações do Edifício Cria’r, em Bento Gonçalves/RS.">
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-brand" viewBox="0 0 32 32"><path d="M5 26V8l7-3v21M12 26V5l8 3v18M20 26V8l7-3v21M3 26h26M8.5 11h1.5m-1.5 5h1.5m5-5h2m-2 5h2m-2 5h2m5-5h1.5m-1.5 5h1.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/></symbol>
+    <symbol id="icon-building" viewBox="0 0 24 24"><path d="M4 21V4h11v17M15 9h5v12M7 7h2m-2 4h2m-2 4h2m5-2h2m-2-3h2m-2-3h2M2 21h20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.6Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 8.5c.2-.5.4-.5.7-.5h.5l.8 2-1 1a5.6 5.6 0 0 0 3 3l1-1 2 .8v.5c0 .3 0 .5-.5.7-.7.3-1.4.2-2-.1-1.5-.7-3-2.2-3.7-3.7-.3-.6-.4-1.3-.1-2Z" fill="currentColor"/></symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.5 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4H16V4.5c-.3 0-.9-.1-1.8-.1-2 0-3.4 1.2-3.4 3.5v2.3H8.5V13h2.3v7h2.7Z" fill="currentColor"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3.8" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="6.8" r="1" fill="currentColor"/></symbol>
+    <symbol id="icon-telegram" viewBox="0 0 24 24"><path d="m20.5 4.2-3 15.4c-.2 1.1-.8 1.4-1.7.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.1c.4-.4-.1-.6-.6-.2l-11 7-4.7-1.5c-1-.3-1-1 .2-1.4L19 3.5c.8-.3 1.7.2 1.5.7Z" fill="currentColor"/></symbol>
+    <symbol id="icon-email" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4.5 7 7.5 5.6L19.5 7" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  </svg>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="#topo" aria-label="Edifício Cria'r — início"><span class="brand-mark" aria-hidden="true"><svg><use href="#icon-brand" /></svg></span><b>Edifício<br />Cria’r</b></a>
+    <nav aria-label="Navegação principal"><a href="#contatos">Canais</a><a href="#informacoes">Informações</a><a href="#faq-heading">Dúvidas frequentes</a></nav>
+    <div class="share-wrap"><button class="share-button" type="button" data-share aria-expanded="false" aria-controls="share-menu">Compartilhar <span aria-hidden="true">↗</span></button><div class="share-menu" id="share-menu" hidden><a data-share-network="whatsapp" target="_blank" rel="noreferrer"><svg aria-hidden="true"><use href="#icon-whatsapp" /></svg>WhatsApp</a><a data-share-network="telegram" target="_blank" rel="noreferrer"><svg aria-hidden="true"><use href="#icon-telegram" /></svg>Telegram</a><a data-share-network="facebook" target="_blank" rel="noreferrer"><svg aria-hidden="true"><use href="#icon-facebook" /></svg>Facebook</a><button type="button" data-share-instagram><svg aria-hidden="true"><use href="#icon-instagram" /></svg>Instagram</button><a data-share-network="email"><svg aria-hidden="true"><use href="#icon-email" /></svg>E-mail</a><p class="share-feedback" role="status" aria-live="polite"></p></div></div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="topo">
+      <div class="hero-copy">
+        <p class="eyebrow">CENTRO · BENTO GONÇALVES / RS</p>
+        <h1>A vida em comum,<br /><em>bem resolvida.</em></h1>
+        <p class="hero-text">Informações essenciais, serviços e canais do Edifício Cria’r em um único endereço.</p>
+        <div class="hero-actions"><a class="button button-gold" href="#contatos">Acessar canais</a><a class="text-link" href="#informacoes">Ver informações <span>↓</span></a></div>
+      </div>
+      <div class="hero-art"><img src={`${base}/images/edificio-criar.png`} alt="Fachada do Edifício Cria’r" /><div class="art-stamp">CRIAR<br /><span>RESIDENCIAL</span></div></div>
+      <p class="address">Rua Marechal Deodoro, 311<br />Centro · 95700-160</p>
+    </section>
+
+    <section class="section channels" id="contatos">
+      <div class="section-heading"><p class="eyebrow">01 / CANAIS DE ATENDIMENTO</p><h2>Todo o essencial,<br /><em>ao seu alcance.</em></h2></div>
+      <div class="contact-list">
+        {contacts.map(([title, detail, href], index) => <a class="contact-card" href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined}><span class="contact-number">0{index + 1}</span><span><span class="contact-title-line"><svg class="contact-icon" aria-hidden="true"><use href={index === 0 ? '#icon-building' : '#icon-whatsapp'} /></svg><strong>{title}</strong></span><small>{detail}</small></span><span class="contact-arrow" aria-hidden="true">↗</span></a>)}
+        <a class="contact-card" href="#" data-email-link data-email-name="edificiocriar" data-email-host="gmail" data-email-tld="com"><span class="contact-number">05</span><span><span class="contact-title-line"><svg class="contact-icon" aria-hidden="true"><use href="#icon-email" /></svg><strong>E-mail</strong></span><small data-email-label>Carregar endereço de e-mail</small></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section information" id="informacoes">
+      <div class="section-heading"><p class="eyebrow">02 / INFORMAÇÕES</p><h2>Clareza para<br /><em>o dia a dia.</em></h2></div>
+      <div class="info-grid">
+        <article class="documents"><p class="label">DOCUMENTOS OFICIAIS</p><a href="https://drive.google.com/file/d/1qz877Biz61HfDcGCha79ZqTKJnixEAQE/view?usp=sharing" target="_blank" rel="noreferrer">Regulamento interno resumido <span>↗</span></a><a href="https://drive.google.com/file/d/1RKZa2O2Xv87UbZRlm8yIjFTFGpU1-bLV/view?usp=drive_link" target="_blank" rel="noreferrer">Convenção vigente 2018 <span>↗</span></a><a href="https://drive.google.com/file/d/12LCbNaG0AjiO8Z7_D2QA4x8P21zl_TcL/view?usp=drive_link" target="_blank" rel="noreferrer">Registro de atas e convenção <span>↗</span></a><a href="https://drive.google.com/file/d/13fHWenu7yrC3oxx6FXREDfXSuQaZe1gU/view?usp=drive_link" target="_blank" rel="noreferrer"><span class="document-title">Plantas baixas <small>143 MB</small></span><span class="document-arrow" aria-hidden="true">↗</span></a></article>
+        <aside class="location"><p class="label">LOCALIZAÇÃO</p><h3>Centro de<br />Bento Gonçalves.</h3><p>Rua Marechal Deodoro, 311<br />Centro · 95700-160</p><a class="button button-outline" href="https://g.co/kgs/2afrxHr" target="_blank" rel="noreferrer">Abrir no Google Maps <span>↗</span></a></aside>
+      </div>
+    </section>
+
+    <section class="section faq-section" aria-labelledby="faq-heading">
+      <div class="section-heading"><p class="eyebrow">03 / DÚVIDAS FREQUENTES</p><h2 id="faq-heading">Informações para<br /><em>o seu dia a dia.</em></h2></div>
+      <div class="faq-list">{faq.map(([question, answers], index) => <details><summary><span>{String(index + 1).padStart(2, '0')}</span>{question}<i aria-hidden="true">+</i></summary><ul>{answers.map((answer) => <li>{answer}</li>)}</ul></details>)}</div>
+    </section>
+
+  </main>
+  <footer><a class="brand" href="#topo" aria-label="Edifício Cria'r — início"><span class="brand-mark" aria-hidden="true"><svg><use href="#icon-brand" /></svg></span><b>Edifício<br />Cria’r</b></a><p>Rua Marechal Deodoro, 311 · Bento Gonçalves/RS</p><a class="footer-email" href="#" data-email-link data-email-name="edificiocriar" data-email-host="gmail" data-email-tld="com" data-email-label><svg aria-hidden="true"><use href="#icon-email" /></svg>Carregar e-mail</a><small>© {new Date().getFullYear()} Edifício Cria’r</small></footer>
+  <script is:inline>
+    const emailLinks = document.querySelectorAll('[data-email-link]');
+    emailLinks.forEach((link) => { const address = `${link.dataset.emailName}@${link.dataset.emailHost}.${link.dataset.emailTld}`; const label = link.querySelector('[data-email-label]') || link; label.textContent = address; link.addEventListener('click', (event) => { event.preventDefault(); window.location.href = `mailto:${address}`; }); });
+    const shareButton = document.querySelector('[data-share]'); const shareMenu = document.querySelector('#share-menu'); const shareFeedback = document.querySelector('.share-feedback');
+    const shareUrl = window.location.href; const shareTitle = 'Edifício Cria’r'; const encodedUrl = encodeURIComponent(shareUrl); const encodedTitle = encodeURIComponent(shareTitle);
+    const shareLinks = { whatsapp: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`, telegram: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`, facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, email: `mailto:?subject=${encodedTitle}&body=${encodedTitle}%0A${encodedUrl}` };
+    document.querySelectorAll('[data-share-network]').forEach((link) => { link.href = shareLinks[link.dataset.shareNetwork]; });
+    shareButton.addEventListener('click', () => { const isOpen = !shareMenu.hidden; shareMenu.hidden = isOpen; shareButton.setAttribute('aria-expanded', String(!isOpen)); });
+    document.querySelector('[data-share-instagram]').addEventListener('click', async () => { try { await navigator.clipboard.writeText(shareUrl); shareFeedback.textContent = 'Link copiado. Abra o Instagram e cole-o no seu story ou mensagem.'; } catch { shareFeedback.textContent = 'Copie o endereço desta página para compartilhar no Instagram.'; } });
+    document.addEventListener('click', (event) => { if (!event.target.closest('.share-wrap')) { shareMenu.hidden = true; shareButton.setAttribute('aria-expanded', 'false'); } });
+  </script>
+</BaseLayout>
